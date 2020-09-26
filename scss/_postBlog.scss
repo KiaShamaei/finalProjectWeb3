@@ -1,0 +1,14 @@
+.bordershadow{
+	border-radius: 10px;
+	border: 1px solid #999 !important;
+	margin: 1rem;
+	box-shadow:2px 3px 10px 5px #777 ; 
+	transition: transform .4s;
+	img{
+		border-radius: 10px 10px 0px 0px;
+		height: 10rem;
+	}
+}
+.bordershadow:hover {
+	transform: scale(1.04); 
+  }

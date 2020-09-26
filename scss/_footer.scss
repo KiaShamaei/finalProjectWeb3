@@ -1,0 +1,18 @@
+.footer {
+	background-color: black;
+	min-height: 40vh;
+	padding-top:3rem;
+	
+	@media(max-width:768px){
+		padding-top :3rem;
+	}
+}
+.copyRights {
+	background-color: black;
+	min-height: 10vh;
+	font-weight: normal;
+	display: block;
+	@media(max-width: 768px){
+		display: none;
+	}
+}
