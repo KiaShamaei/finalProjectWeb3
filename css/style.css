@@ -165,4 +165,8 @@ a, a:hover {
   -webkit-transform: scale(1.04);
           transform: scale(1.04);
 }
+
+.logoJob img {
+  border-radius: 10px;
+}
 /*# sourceMappingURL=style.css.map */
