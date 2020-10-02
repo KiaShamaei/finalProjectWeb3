@@ -1,0 +1,23 @@
+.main2 {
+	
+	min-height: 45vh;
+	background: linear-gradient(rgba(19, 89, 219, 0.7), rgba(19, 89, 219, 0.9)), url("../../images/rel.jpg");
+	background-position: center center;
+  background-size: 100% 100%;
+  @media(max-width:992px){
+	min-height: 50vh;
+	font-size: larger;
+  }
+}
+.page-link-2 {
+	color: #fff;
+    background-color:#593196;
+	border: 1px solid #ededed;
+	border-radius: 50%;
+	margin: 1px;
+}
+.page-link-active{
+	color:#593196;
+	background-color:#fff;
+	border: 1px solid #593196;
+}
