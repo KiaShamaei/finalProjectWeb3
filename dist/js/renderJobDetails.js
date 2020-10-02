@@ -1,3 +1,5 @@
+"use strict";
+
 var jobtitle = $("#jobtitle1");
 var jobCompany = $("#jobcompany");
 var contractType = $("#contractTypeJob");
@@ -7,36 +9,36 @@ var jobdescription = $('#jobdescription');
 var requirementJob = $('#requirementJob');
 var logoJob = $('#logoJob');
 var advantage = $('#advantageJob');
-let stateDetail = {};
-
+var stateDetail = {};
 function loadJobDetail() {
-  const jobDetail = "http://my-json-server.typicode.com/mkazemiraz/job-blog-fakeDB/jobDetails";
-  return new Promise((resolve, reject) => {
-    let res = $.ajax(jobDetail);
-
-    if (res) {
-      resolve(res);
-    } else {
-      reject(console.log(new Error("Api down or Bad requestd")));
-    }
-  });
+	var jobDetail = "http://my-json-server.typicode.com/mkazemiraz/job-blog-fakeDB/jobDetails";
+	return new Promise(function (resolve, reject) {
+		var res = $.ajax(jobDetail);
+		if (res) {
+			resolve(res);
+		} else {
+			reject(console.log(new Error("Api down or Bad requestd")));
+		}
+	});
 }
 
 async function renderJob() {
-  let detail = await loadJobDetail();
-  jobtitle.text(detail.title);
-  jobCompany.text(detail.company);
-  contractType.text(detail.contractType);
-  uregentJob.text(`urgent: ${detail.uregent}`);
-  locationJob.text(detail.location);
-  jobdescription.text(detail.description);
-  requirementJob.text(detail.requirement);
-  logoJob.attr('src', detail.logo);
-  advantage.text(detail.advantages);
-  document.getElementById('jobtitle').innerHTML = `JoB : ${detail.title}`;
-}
+	var detail = await loadJobDetail();
+	jobtitle.text(detail.title);
+	jobCompany.text(detail.company);
+	contractType.text(detail.contractType);
+	uregentJob.text("urgent: " + detail.uregent);
+	locationJob.text(detail.location);
+	jobdescription.text(detail.description);
+	requirementJob.text(detail.requirement);
+	logoJob.attr('src', detail.logo);
+	advantage.text(detail.advantages);
 
-renderJob(); // title: "برنامه نویس Front-End",
+	document.getElementById('jobtitle').innerHTML = "JoB : " + detail.title;
+}
+renderJob();
+
+// title: "برنامه نویس Front-End",
 // company: "کاوانو",
 // contractType: "تمام وقت",
 // logo: "https://picsum.photos/200/300?random=1",

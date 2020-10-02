@@ -2,14 +2,14 @@
 const { src, dest, watch, series, parallel } = require('gulp');
 const sass = require('gulp-sass');
 const babel = require('gulp-babel');
+const plumber = require('gulp-plumber');
 const browserSync = require('browser-sync').create();
 
 //////////////////////////////////////////////////////////////
 
 const inputs = {
-    sassPath: './.gitignore/src/scss/**/*.scss',
-    jsPath: './.gitignore/src/js/**/*.js',
-    
+    sassPath: '.gitignore/src/scss/**/*.scss',
+    jsPath: '.gitignore/src/js/**/*.js',  
 };
 const outputs = {
     cssPath: 'dist/css',
@@ -28,8 +28,16 @@ function sassTask() {
 
 function jsTask() {
 	return src(inputs.jsPath)
+	
+    // Stop the process if an error is thrown.
+    .pipe(plumber())
     // Transpile the JS code using Babel's preset-env.
-    .pipe(babel())
+    .pipe(babel({
+      presets: [
+        ['es2015','es2017']
+      ]
+    }))
+    // Save each component as a separate file in dist.
 	.pipe(dest(outputs.jsPath))
 }
 
