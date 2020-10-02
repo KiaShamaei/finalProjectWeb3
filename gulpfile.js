@@ -2,7 +2,6 @@
 const { src, dest, watch, series, parallel } = require('gulp');
 const sass = require('gulp-sass');
 const babel = require('gulp-babel');
-
 const browserSync = require('browser-sync').create();
 
 //////////////////////////////////////////////////////////////
@@ -29,7 +28,8 @@ function sassTask() {
 
 function jsTask() {
 	return src(inputs.jsPath)
-	.pipe(babel())
+    // Transpile the JS code using Babel's preset-env.
+    .pipe(babel())
 	.pipe(dest(outputs.jsPath))
 }
 
